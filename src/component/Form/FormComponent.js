@@ -1,5 +1,6 @@
 import React from "react";
-import InputFieldComponent from "./Fields/InputFieldComponent";
+import FieldsComponent from "./Fields/FieldsComponent";
+import { validateFormFields } from "../../formValidator/validator";
 import formConfig from "../../form-config.json";
 
 class FormComponent extends React.Component {
@@ -15,25 +16,23 @@ class FormComponent extends React.Component {
     this.setState({ [name]: value });
   };
 
-  getFormFields = () => {
+  submitForm = () => {
+    console.log("in form submit function");
     const fieldsArray = formConfig.inputFields;
-    return fieldsArray.map((field) => {
-      return (
-        <InputFieldComponent
-          key={field.name}
-          fieldDetails={field}
-          updateState={this.updateState}
-        />
-      );
-    });
+    validateFormFields(fieldsArray, this.state);
   };
 
   render() {
     return (
-      <form className="ui form">
-        <h4 className="ui dividing header">User Information</h4>
-        {this.getFormFields()}
-      </form>
+      <div className="ui container">
+        <form className="ui form">
+          <h4 className="ui dividing header">User Information</h4>
+          <FieldsComponent
+            updateState={this.updateState}
+            submitForm={this.submitForm}
+          />
+        </form>
+      </div>
     );
   }
 }

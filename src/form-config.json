@@ -23,6 +23,12 @@
       "type": "email",
       "fieldType": "email",
       "name": "email"
+    },
+    {
+      "label": "Save",
+      "type": "button",
+      "fieldType": "button",
+      "name": "button"
     }
   ]
 }
