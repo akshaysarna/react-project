@@ -9,22 +9,23 @@ class FormComponent extends React.Component {
     lastName: "",
     mobile: "",
     email: "",
+    location: "",
   };
 
   updateState = (name, value) => {
-    console.log(`value for ${name} is ${value}`);
+    console.debug(`value for ${name} is ${value}`);
     this.setState({ [name]: value });
   };
 
   submitForm = () => {
-    console.log("in form submit function");
+    console.log(`in form submit function`);
     const fieldsArray = formConfig.inputFields;
     validateFormFields(fieldsArray, this.state);
   };
 
   render() {
     return (
-      <div className="ui container">
+      <div className="ui container" style={{ marginTop: "20px" }}>
         <form className="ui form">
           <h4 className="ui dividing header">User Information</h4>
           <FieldsComponent

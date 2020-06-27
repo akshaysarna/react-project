@@ -1,9 +1,12 @@
 import { validateInputField } from "./validateInputFeild";
-import { showAndHideError } from "../formValidator/error";
+import {
+  showAndHideInputError,
+  showAndHideSelectError,
+} from "../formValidator/error";
 
 const validateInput = (fieldType, value) => {
   let isRegexValid = validateInputField(fieldType, value);
-  console.log("is Regex validd -> " + isRegexValid);
+  console.debug("is Regex validd -> " + isRegexValid);
 
   if (value && isRegexValid) {
     return true;
@@ -11,15 +14,26 @@ const validateInput = (fieldType, value) => {
   return false;
 };
 
+const validateSelect = (value) => {
+  if (value) return true;
+  else return false;
+};
+
 const validateFormFields = (fields, state) => {
   let isFormValid = true;
   const areFieldsValid = [];
+
   fields.map((field) => {
-    if (field.type !== "button") {
+    const element = document.getElementById(field.name);
+    if (field.type === "select") {
+      const isFieldValid = validateSelect(state[field.name]);
+      areFieldsValid.push(isFieldValid);
+      showAndHideSelectError(element, isFieldValid);
+    } else if (field.type !== "button") {
       const isFieldValid = validateInput(field.fieldType, state[field.name]);
       areFieldsValid.push(isFieldValid);
-      const element = document.getElementById(field.name);
-      showAndHideError(element, isFieldValid);
+
+      showAndHideInputError(element, isFieldValid);
       return isFieldValid;
     }
     return true;
@@ -31,4 +45,4 @@ const validateFormFields = (fields, state) => {
   return isFormValid;
 };
 
-export { validateInput, validateFormFields };
+export { validateInput, validateSelect, validateFormFields };

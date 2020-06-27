@@ -1,25 +1,25 @@
 import React from "react";
 import { validateInput } from "../../../formValidator/validator";
-import { showAndHideError } from "../../../formValidator/error";
+import { showAndHideInputError } from "../../../formValidator/error";
 
-class InputFieldComponent extends React.Component {
+class InputComponent extends React.Component {
   onChangeValidator = (e) => {
-    console.log(this.props);
+    console.debug(this.props);
     const fieldType = e.target.getAttribute("fieldtype");
 
-    console.log("fieldType -> " + fieldType);
+    console.debug("fieldType -> " + fieldType);
     const name = e.target.id;
     const value = e.target.value;
 
     const element = document.getElementById(name);
     const isValueValid = validateInput(fieldType, value);
     if (isValueValid || value.length === 0) this.props.updateState(name, value);
-    showAndHideError(element, isValueValid);
+    showAndHideInputError(element, isValueValid);
   };
 
   inputField = (props) => {
     if (props) {
-      console.log(`props recived from parent ${JSON.stringify(props)}`);
+      console.debug(`props recived from parent ${JSON.stringify(props)}`);
     }
 
     return (
@@ -46,4 +46,4 @@ class InputFieldComponent extends React.Component {
   }
 }
 
-export default InputFieldComponent;
+export default InputComponent;

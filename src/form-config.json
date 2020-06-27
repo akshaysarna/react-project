@@ -25,6 +25,24 @@
       "name": "email"
     },
     {
+      "label": "Location",
+      "type": "select",
+      "fieldType": "select",
+      "name": "location",
+      "options": [
+        {
+          "value": ""
+        },
+        {
+          "value": "Ghaziabad"
+        },
+        {
+          "value": "Noida"
+        }
+      ]
+    },
+
+    {
       "label": "Save",
       "type": "button",
       "fieldType": "button",

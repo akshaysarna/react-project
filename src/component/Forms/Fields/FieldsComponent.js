@@ -1,6 +1,7 @@
 import React from "react";
-import InputFieldComponent from "./InputComponent";
+import InputComponent from "./InputComponent";
 import ButtonComponent from "../Fields/ButtonComponent";
+import SelectComponent from "../Fields/SelectComponent";
 import formConfig from "../../../form-config.json";
 
 class FieldsComponent extends React.Component {
@@ -15,9 +16,17 @@ class FieldsComponent extends React.Component {
             submitForm={this.props.submitForm}
           />
         );
+      } else if (field.type === "select") {
+        return (
+          <SelectComponent
+            key={field.name}
+            fieldDetails={field}
+            updateState={this.props.updateState}
+          />
+        );
       } else {
         return (
-          <InputFieldComponent
+          <InputComponent
             key={field.name}
             fieldDetails={field}
             updateState={this.props.updateState}
