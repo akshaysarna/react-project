@@ -1,5 +1,5 @@
 import React from "react";
-import InputFieldComponent from "./InputField/InputFieldComponent";
+import InputFieldComponent from "./Fields/InputFieldComponent";
 import formConfig from "../../form-config.json";
 
 class FormComponent extends React.Component {
