@@ -1,52 +1,26 @@
 {
-  "inputFields": [
-    {
-      "label": "First Name",
-      "type": "text",
-      "fieldType": "alphanumeric",
-      "name": "firstName"
-    },
-    {
-      "label": "Last Name",
-      "type": "text",
-      "fieldType": "alphanumeric",
-      "name": "lastName"
-    },
-    {
-      "label": "Mobile Number",
-      "type": "tel",
-      "fieldType": "number",
-      "name": "mobile"
-    },
-    {
-      "label": "Email Address",
-      "type": "email",
-      "fieldType": "email",
-      "name": "email"
-    },
-    {
-      "label": "Location",
-      "type": "select",
-      "fieldType": "select",
-      "name": "location",
-      "options": [
-        {
-          "value": ""
-        },
-        {
-          "value": "Ghaziabad"
-        },
-        {
-          "value": "Noida"
-        }
-      ]
-    },
+  "loginForm": {
+    "heading": "Login Form",
+    "inputFields": [
+      {
+        "label": "Username",
+        "type": "text",
+        "fieldType": "alphanumeric",
+        "name": "username"
+      },
+      {
+        "label": "Password",
+        "type": "password",
+        "fieldType": "alphanumeric",
+        "name": "password"
+      },
 
-    {
-      "label": "Save",
-      "type": "button",
-      "fieldType": "button",
-      "name": "button"
-    }
-  ]
+      {
+        "label": "Login",
+        "type": "button",
+        "fieldType": "button",
+        "name": "button"
+      }
+    ]
+  }
 }

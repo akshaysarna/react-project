@@ -1,12 +1,12 @@
 import React from "react";
 
-import FormComponent from "./Forms/FormComponent";
+import LoginForm from "../component/Forms/LoginForm";
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <FormComponent name="abc" />
+        <LoginForm />
       </div>
     );
   }

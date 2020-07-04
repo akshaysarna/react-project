@@ -2,11 +2,10 @@ import React from "react";
 import InputComponent from "./InputComponent";
 import ButtonComponent from "../Fields/ButtonComponent";
 import SelectComponent from "../Fields/SelectComponent";
-import formConfig from "../../../form-config.json";
 
 class FieldsComponent extends React.Component {
   getFormFields = () => {
-    const fieldsArray = formConfig.inputFields;
+    const fieldsArray = this.props.formConfig;
     return fieldsArray.map((field) => {
       if (field.type === "button") {
         return (
@@ -29,6 +28,7 @@ class FieldsComponent extends React.Component {
           <InputComponent
             key={field.name}
             fieldDetails={field}
+            formState={this.props.formState}
             updateState={this.props.updateState}
           />
         );

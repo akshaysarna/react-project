@@ -18,22 +18,20 @@ class InputComponent extends React.Component {
   };
 
   inputField = (props) => {
-    if (props) {
-      console.debug(`props recived from parent ${JSON.stringify(props)}`);
-    }
-
+    const inputfieldDetails = props.fieldDetails;
+    const fieldValue = props.formState[inputfieldDetails.name];
     return (
       <div className="field">
-        <label>{props.label}</label>
+        <label>{inputfieldDetails.label}</label>
 
         <div className="ui input">
           <input
-            id={props.name}
-            fieldtype={props.fieldType}
-            type={props.type}
-            value={props.value}
+            id={inputfieldDetails.name}
+            fieldtype={inputfieldDetails.fieldType}
+            type={inputfieldDetails.type}
+            value={fieldValue}
             onChange={this.onChangeValidator}
-            placeholder={props.label}
+            placeholder={inputfieldDetails.label}
           />
           <span></span>
         </div>
@@ -42,7 +40,7 @@ class InputComponent extends React.Component {
   };
 
   render() {
-    return this.inputField(this.props.fieldDetails);
+    return this.inputField(this.props);
   }
 }
 
